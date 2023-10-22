@@ -2,8 +2,10 @@
 Collecting website screenshots
 
 ## H2 Installation:
-./bin/run.sh
-
+```
+cd ./bin/
+./run.sh
+```
 ## H2 Use:
 
 GET localhost:8080/isalive
