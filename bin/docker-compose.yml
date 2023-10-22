@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    network_mode: host
+#    volumes:
+#      - ../db:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    network_mode: host
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    network_mode: host
+    depends_on:
+      - postgres
+    volumes:
+      - ../src:/app/source/
+      - ../logs:/app/logs/
+      - ../screenshots:/app/screenshots/
+    working_dir: /app/source
+    command: python3 web-server.py

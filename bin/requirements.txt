@@ -1,0 +1,7 @@
+bottle
+python-dotenv
+pydantic
+psycopg2-binary
+requests
+beautifulsoup4
+pytest-playwright
