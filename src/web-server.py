@@ -103,11 +103,15 @@ def get_screenshots(id: int):
 			return { 'error': 'Not found' }
 		
 		base_dir = os.path.join(screenshots_dir, str(id))
+		screenshots = []
+		if os.path.exists(base_dir):
+			screenshots = list([f for f in os.listdir(base_dir) if os.path.isfile(os.path.join(base_dir, f))])
+			
 		return { 
 			'screenshot_index': screenshot[0][0],
 			'screenshot_url': screenshot[0][1],
 			'count_links': screenshot[0][2],
-			'screenshots': list([f for f in os.listdir(base_dir) if os.path.isfile(os.path.join(base_dir, f))])
+			'screenshots': screenshots
 		}
 	except Exception as ex:
 		logger.exception('Error while fetching screenshots')
