@@ -4,6 +4,7 @@ Collecting website screenshots
 ## Installation:
 ```
 cd ./bin/
+chmod +x run.sh
 ./run.sh
 ```
 ## Use:
