@@ -1,12 +1,12 @@
 # web-crawler
 Collecting website screenshots
 
-## H2 Installation:
+## Installation:
 ```
 cd ./bin/
 ./run.sh
 ```
-## H2 Use:
+## Use:
 
 GET localhost:8080/isalive
 
