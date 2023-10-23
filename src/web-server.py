@@ -23,7 +23,7 @@ GET /screenshots/<screenshot_id:int>
 	Response:
 	[
 		{
-			"screenshot_index": 1,
+			"screenshot_id": 1,
 			"screenshot_url": "https://edited.com",
 			"count_links": 3,
 			"screenshots": [
@@ -108,7 +108,7 @@ def get_screenshots(id: int):
 			screenshots = list([f for f in os.listdir(base_dir) if os.path.isfile(os.path.join(base_dir, f))])
 			
 		return { 
-			'screenshot_index': screenshot[0][0],
+			'screenshot_id': screenshot[0][0],
 			'screenshot_url': screenshot[0][1],
 			'count_links': screenshot[0][2],
 			'screenshots': screenshots
